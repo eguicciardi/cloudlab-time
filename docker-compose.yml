@@ -1,0 +1,13 @@
+services:
+  ntp:
+    image: dockurr/chrony
+    container_name: cloudlab-ntp
+    environment:
+      NTP_SERVERS: "pool.ntp.org,time.cloudflare.com"
+    ports:
+      - 123:123/udp
+    restart: always
+
+networks:
+  cloudlab-network:
+    external: true
